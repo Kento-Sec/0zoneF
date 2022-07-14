@@ -26,7 +26,6 @@ class zoneF(object):
             print(
                 "[-]  参数错误！\neg1:>>>python3 0zoneF.py -q key=零零信安")
         self.query = args.query
-        self.pages = args.pages
         self.search()
 
     def search(self):
