@@ -29,26 +29,25 @@ class zoneF(object):
         self.search()
 
     def search(self):
-        body = {"title": "{}", "title_type": "site", "page": 1, "pagesize": 10,
+        body = {"title": "{}", "title_type": "site", "page": 1, "pagesize": 40,
                 "zone_key_id": self.zone_key_id
                 }
         body['title'] = self.query
-        body['page'] = self.pages
         response = requests.request("POST", url=self.url, headers=self.heard, data=body)
         json_data = json.loads(response.text)
         totalresults = json_data['total']
         print("\033[32m[o]一共获取到: "+str(totalresults) + "条数据\033[0m")
-        totalpage = round(totalresults /10)
+        totalpage = round(totalresults /40)
         if totalresults > 10:
             for page in range(1,totalpage+1):
-                body2 = {"title": "", "title_type": "site", "page": 1, "pagesize": 10,
+                body2 = {"title": "", "title_type": "site", "page": 1, "pagesize": 40,
                          "zone_key_id": self.zone_key_id
                          }
                 body2['title'] = self.query
                 body2['page'] = page
                 response = requests.request("POST", url=self.url, headers=self.heard, data=body2)
                 json_data = json.loads(response.text)
-                for num in range(0,10):
+                for num in range(0,40):
                     try:
                         print(json_data['data'][num]['url'])
                         url = json_data['data'][num]['url']
