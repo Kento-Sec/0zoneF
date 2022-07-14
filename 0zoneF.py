@@ -35,7 +35,7 @@ class zoneF(object):
                 "zone_key_id": self.zone_key_id
                 }
         body['title'] = self.query
-        response = requests.request("POST", url=self.url, headers=self.heard, data=body)
+        response = requests.request("POST", url=self.url, headers=self.heard, verify=False,data=body)
         json_data = json.loads(response.text)
         totalresults = json_data['total']
         print("\033[32m[o]一共获取到: "+str(totalresults) + "条数据\033[0m")
@@ -48,7 +48,7 @@ class zoneF(object):
                          }
                 body2['page'] = page
                 body2['title'] = self.query
-                response = requests.request("POST", url=self.url, headers=self.heard, data=body2)
+                response = requests.request("POST", url=self.url, headers=self.heard, verify=False,data=body2)
                 json_data = json.loads(response.text)
                 for num in range(0,40):
                     try:
