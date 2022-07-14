@@ -22,7 +22,7 @@ class zoneF(object):
         self.zone_key_id = "" # 此处添加api-key
         parser = argparse.ArgumentParser(description="0zoneF是一款以终端命令行方式查询0.zone的工具")
         parser.add_argument("-q", "--query", type=str, metavar="query", help="example: key=零零信安")
-        parser.add_argument("-t", "--title_type", type=str, metavar="title_type", default='site',help="site:信息系统 akp:移动客户端 sensitive:敏感目录 email:邮箱 doc:文档 code:代码 membe:人员")
+#         parser.add_argument("-t", "--title_type", type=str, metavar="title_type", default='site',help="site:信息系统 akp:移动客户端 sensitive:敏感目录 email:邮箱 doc:文档 code:代码 membe:人员")
         args = parser.parse_args()
         if len(sys.argv) != 3:
             print(
