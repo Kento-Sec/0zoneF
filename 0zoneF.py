@@ -56,8 +56,8 @@ class zoneF(object):
                     except:
                         break
 
-        elif totalresults <= 10:
-            for num in range(0, 10):
+        elif totalresults <= 40:
+            for num in range(0, 40):
                 try:
                     print(json_data['data'][num]['url'])
                 except:
