@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import argparse
 import json
+import math
 import sys
 import requests
 
@@ -38,14 +39,15 @@ class zoneF(object):
         json_data = json.loads(response.text)
         totalresults = json_data['total']
         print("\033[32m[o]一共获取到: "+str(totalresults) + "条数据\033[0m")
-        totalpage = round(totalresults /40)
+        totalpage = math.ceil(totalresults/40)
         if totalresults > 40:
-            for page in range(1,totalpage+1):
-                body2 = {"title": "", "title_type": "site", "page": 1, "pagesize": 40,
+            for page in range(0,totalpage+1):
+                page +=1
+                body2 = {"title": "", "title_type": "site", "page": page, "pagesize": 40,
                          "zone_key_id": self.zone_key_id
                          }
-                body2['title'] = self.query
                 body2['page'] = page
+                body2['title'] = self.query
                 response = requests.request("POST", url=self.url, headers=self.heard, data=body2)
                 json_data = json.loads(response.text)
                 for num in range(0,40):
