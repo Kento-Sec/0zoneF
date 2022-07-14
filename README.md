@@ -1,8 +1,7 @@
 # 0zoneF
-0.zone的搜索脚本
 
+[0.zone](https://0.zone/ )的搜索脚本
 
-https://0.zone/ 
 
 在21行添加你信息系统的apikey
 
