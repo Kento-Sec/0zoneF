@@ -39,7 +39,7 @@ class zoneF(object):
         print("\033[32m[o]一共获取到: "+str(totalresults) + "条数据\033[0m")
         totalpage = round(totalresults /40)
         if totalresults > 40:
-            for page in range(1,totalpage+1):
+            for page in range(1,totalpage):
                 body2 = {"title": "", "title_type": "site", "page": 1, "pagesize": 40,
                          "zone_key_id": self.zone_key_id
                          }
